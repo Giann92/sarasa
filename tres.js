@@ -24,12 +24,13 @@ function mostrar() {
   let acumPrecioMasBarato;
   let contJuguetesImportados = 0;
   let tipoMasVenido;
+  let  contImportados = 0;
   let contMuñeca = 0;
   let contRompecabezas = 0;
   let contPelota = 0;
   let precioMasBarato;
   let flagMasBarato = 1;
-  let Total;
+  let total;
   let masTipo;
   let percibioIva;
   let respuesta;
@@ -51,6 +52,7 @@ function mostrar() {
     }
     if (origen == "importado") {
       acumPrecioImportado += precio;
+      contImportados++;
     } else {
       acumPrecioNacional += precio
     }
@@ -74,7 +76,8 @@ function mostrar() {
     respuesta = prompt("Desea seguir ingresando juguetes: s/n");
   } while (respuesta == "s");
 
-  Total = acumPrecioImportado + acumPrecioNacional;
+  total = acumPrecioImportado + acumPrecioNacional;
+  promPreciosImportados =  acumPrecioImportado / contImportados;
 
 
   //a- El tipo de juguete mas vendido
@@ -86,4 +89,15 @@ function mostrar() {
     masTipo = "rompecabeza";
   }
   document.write("El tipo de mascota que mas hay es: " + masTipo + "<br>");
+
+  //b- El promedio de precio de los juguetes importados
+  document.write("El promedio de precio de ls imprtados son: " + promPreciosImportados + "</br>");
+  
+  //c- La recaudacion total
+  document.write("la reacudacion total es: " + total + "</br>");
+
+  //d- Cual es el precio del rompecabezas nacional mas barato
+  document.write("El precio de romprecabeza mas baratro es: " + precioMasBarato + "</br>");
+
+
 }
